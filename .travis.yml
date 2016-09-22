@@ -6,12 +6,13 @@ jdk:
 env:
   global:
   - BINTRAY_USER=lembrd
-  
+  - secure: AR/nD6kquerQWXpqJSdhKKUBCJW4kzmQa0iTlQgt6cN13NVC5aVvhqWVYnYdRiFHfQj4zkGyWLL4+4UDo9AX5NnfTTQn/PdBWDavUjoYyj4ZQUWdsJ6J9CKkr1HhnQFzU+cJ6icY0iWEfH+z4pcc8t6gOoV0of9Aya69M/pFwviXTuJaLEA1oZmmjd5We0pdbyZNi+RA2uHFaSdHf0Zlpty5mKvts8rW9gG1vlIdHJn6V6L6KT1F59MnYMqIfPKdYXVjmfPR8hb4XrQLUSHkj7bQBoAIoEfPHNLlVzHGd6QPGGilYtBe3t43IryGV845JCuzlrlu7yUHOyTERx9n7V6NIKnTv+7OXWDHq00QDrwsmJc+4qr2UOUnVN7w+IGfL60j3eU/gCJL3sB2vGkfz5kP4D7WrvVxSf0BMd3JJe0Sxe6NdtP1nL58k+khv57JdymJibhmHmVsjJXVM+GFfb2ivyXGSRMH4AmwHdMyrD9jadE8Te9pug9OwiIDk0oEmxaZBvVMYoR+okeMd4rdjMNqD62RN+n0H6DdusupfUHxV9gBpwPSzKsHqDFe4Uiy2NVwCuJcJVe477e+akWYz/rY0/PhVWpYClJtHBqnPLHNHnNBrLk+oi7CWuspvFmVlQ2p5gM8jbUNRn4Pbof0L5mwTgg/mx/pOBpDnPUfKBY=
 script:
 - sbt package
 after_success:
 - sh "$TRAVIS_BUILD_DIR/travis/travis-bintray-credentials.sh"
-- if [[ $TRAVIS_BRANCH =~ ^release ]]; then sbt publish; else echo "skip publish for branch $TRAVIS_BRANCH"; fi
+- if [[ $TRAVIS_BRANCH =~ ^release ]]; then sbt publish; else echo "skip publish for
+  branch $TRAVIS_BRANCH"; fi
 before_cache:
 - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
 - find $HOME/.sbt -name "*.lock" -delete

@@ -1,6 +1,6 @@
 name := "tanuki-plugin"
 
-version := "0.1"
+version := "0.4"
 
 organization := "org.lembrd"
 
