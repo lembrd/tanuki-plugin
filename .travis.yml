@@ -1,0 +1,22 @@
+language: scala
+scala:
+- 2.11.8
+jdk:
+- oraclejdk8
+env:
+  global:
+  - BINTRAY_USER=lembrd
+  
+script:
+- sbt package
+after_success:
+- sh "$TRAVIS_BUILD_DIR/travis/travis-bintray-credentials.sh"
+- if [[ $TRAVIS_BRANCH =~ ^release ]]; then sbt publish; else echo "skip publish for branch $TRAVIS_BRANCH"; fi
+before_cache:
+- find $HOME/.ivy2 -name "ivydata-*.properties" -delete
+- find $HOME/.sbt -name "*.lock" -delete
+cache:
+  directories:
+  - "$HOME/.ivy2"
+  - "$HOME/.m2"
+  - "$HOME/.sbt"
