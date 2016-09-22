@@ -12,6 +12,7 @@ generate wrapper.conf for Tanuki Service Wrapper (http://wrapper.tanukisoftware.
 resolvers += Resolver.bintrayIvyRepo("lembrd", "sbt-plugins")
 addSbtPlugin("org.lembrd" % "tanuki-plugin" % "0.4")
 ```
+
 * build.sbt
 ```scala
 enablePlugins(JDebPackaging, JavaAppPackaging, TanukiPlugin)
