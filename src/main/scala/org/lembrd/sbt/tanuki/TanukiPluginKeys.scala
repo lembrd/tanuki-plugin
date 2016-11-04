@@ -15,6 +15,7 @@ trait TanukiPluginKeys {
   val jvmHeapMin = SettingKey[Int]("jvmHeapMin", "-Xms parameter in megabytes")
   val jvmHeapMax = SettingKey[Int]("jvmHeapMax", "-Xmx parameter in megabytes")
 
+  val jvmParameters = TaskKey[Seq[String]]("jvmParameters", "List of JVM options")
   val appParameters = TaskKey[Seq[String]]("appParameters", "List of application parameters")
   val appClasspath = TaskKey[Seq[String]]("appClasspath", "Classpath")
 
